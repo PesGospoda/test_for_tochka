@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+    app:
+        build: app/
+        restart: on-failure:3
+    nginx:
+        container_name: nginx
+        build: nginx/
+        restart: on-failure:3
+        ports:
+            - 80:80
+        depends_on:
+           - app      
+
